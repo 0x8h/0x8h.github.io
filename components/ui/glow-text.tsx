@@ -1,4 +1,3 @@
-//Unused
 import React, { CSSProperties, FC } from "react";
 
 interface GlowTextProps {

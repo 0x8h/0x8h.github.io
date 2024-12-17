@@ -8,6 +8,7 @@ import Book, {
 import nextConfig from "../next.config";
 const BASE_PATH = nextConfig.basePath || "";
 import { BookIcon } from "lucide-react";
+import Link from "next/link";
 import { X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -16,6 +17,7 @@ import Typing from "@/components/ui/type";
 import Snippet from "@/components/ui/snippet";
 import Image from "next/image"
 import Snowfall from "react-snowfall";
+import GlowText from "@/components/ui/glow-text";
 
 export default function Home() {
   const [showBook, setshowBook] = useState<boolean>(true);
@@ -89,7 +91,7 @@ export default function Home() {
             <h1 className="text-xl font-medium">Sigma</h1>
 
             <div className="flex justify-center"> {/*Status message*/}
-              <Typing>I Hate study {">"}:(</Typing>
+              <Typing>Plz share x/ui :D</Typing>
             </div>
             <div className="flex flex-col gap-1.5 mt-2">
               <div className="flex gap-2 justify-center">
@@ -174,7 +176,14 @@ export default function Home() {
             }
           />
           <div className="flex flex-col relative border-t overflow-hidden items-center text-center ">
-            <p className="text-gray-400 text-base mt-4 mb-4">Made with x/ui ♡</p>
+            <p className="text-gray-400 text-base mt-4 mb-4 mr-2">Made with {" "}
+              {
+                <Link href={"https://ui.3x.gl"}>
+                  <GlowText className="text-2xl sm:text-3xl lg:text-base font-medium">
+                    x/ui
+                  </GlowText> 
+                </Link>
+              } ♡</p>
             <p className="text-gray-400 text-sm mb-4">thanks tom to contribute this site! {"<"}3</p>
           </div>
         </div>
