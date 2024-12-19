@@ -1,15 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import Book, {
-  BookHeader,
-  BookTitle,
-  BookDescription,
-} from "@/components/ui/book";
+import React, { useState } from "react"; //imports
 import nextConfig from "../next.config";
-const BASE_PATH = nextConfig.basePath || "";
 import { BookIcon } from "lucide-react";
 import Link from "next/link";
 import { X } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import SwipeableTabs from "@/components/ui/swipeable-tabs";
@@ -18,6 +13,12 @@ import Snippet from "@/components/ui/snippet";
 import Image from "next/image"
 import Snowfall from "react-snowfall";
 import GlowText from "@/components/ui/glow-text";
+import Book, {
+  BookHeader,
+  BookTitle,
+  BookDescription,
+} from "@/components/ui/book";
+const BASE_PATH = nextConfig.basePath || "";
 
 export default function Home() {
   const [showBook, setshowBook] = useState<boolean>(true);
@@ -42,14 +43,14 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <Snowfall />
+      <Snowfall/>
       {showBook ? (
         <div
           onClick={handleShowBook}
           className={`cursor-pointer transition-opacity duration-500 ${fadeOutBook ? "opacity-0" : "opacity-100"
             }`}
         >
-          <Book size="sm">
+          <Book size="sm" radius="md">
             <BookHeader>
               <BookIcon size={20} />
             </BookHeader>
@@ -115,28 +116,30 @@ export default function Home() {
                 content: (
                   <div className="p-4 px-2">
                     <div className="text-center">
-                      <div className="flex flex-col gap-0.5 text-nowrap">
+                      <div className="flex flex-col gap-0.5 text-nowrap ">
                         <p className="text-pretty text-gray-50 text-muted-foreground text-lg">
                           Name: Sigma, A777
                         </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Age: 16
-                        </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Country: Japan
-                        </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Hobby: Programming, cycling, trip
-                        </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Skill: C/++/#, ReverseEngineering
-                        </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Project: Disassembler, OS dev
-                        </p>
-                        <p className="text-pretty text-gray-100 text-muted-foreground text-base">
-                          Gdi trojan(some time i develop)
-                        </p>
+                        <div className="text-pretty text-muted-foreground text-base text-gray-100" >
+                          <p>
+                            Age: 16
+                          </p>
+                          <p>
+                            Country: Japan
+                          </p>
+                          <p>
+                            Hobby: Programming, cycling, trip
+                          </p>
+                          <p>
+                            Skill: C/++/#, ReverseEngineering
+                          </p>
+                          <p>
+                            Project: Disassembler, OS dev
+                          </p>
+                          <p>
+                            Gdi trojan(some time i develop)
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -161,10 +164,14 @@ export default function Home() {
                 label: "Contacts",
                 content: (
                   <div className="p-4 rounded font-bold">
-                    <div className="flex items-center flex-col mb-6">
-                      <p className="text-base">Discord</p>
+                    <div className="flex items-center flex-col mb-6 text-base">
+                      <p>
+                        Discord
+                      </p>
                       <Snippet text="https://discordapp.com/users/1221751741649780780" className="w-[200px]" />
-                      <p className="text-base mt-2">Telegram</p>
+                      <p className="mt-2">
+                        Telegram
+                      </p>
                       <Snippet text="https://t.me/Athree7" className="w-[200px]" />
                     </div>
                   </div>
@@ -176,18 +183,23 @@ export default function Home() {
             }
           />
           <div className="flex flex-col relative border-t overflow-hidden items-center text-center ">
-            <p className="text-gray-400 text-base mt-4 mb-4 mr-2">Made with {" "}
+            <p className="text-gray-400 text-base mt-2 mb-2">Made with {" "}
               {
                 <Link href={"https://ui.3x.gl"}>
                   <GlowText className="text-2xl sm:text-3xl lg:text-base font-medium">
                     x/ui
-                  </GlowText> 
+                  </GlowText>
                 </Link>
               } ♡</p>
-            <p className="text-gray-400 text-sm mb-4">thanks tom to contribute this site! {"<"}3</p>
+            <p className="text-gray-400 text-sm mb-2">thanks tom to contribute this site! {"<"}3</p>
+            <Link href={"https://github.com/athree7/athree7.github.io"}>
+              <SiGithub color='#ffffff' size={24} className="mb-2" />
+            </Link>
           </div>
         </div>
       )}
+      
     </div>
+    
   );
 }
