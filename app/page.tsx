@@ -92,7 +92,7 @@ export default function Home() {
             <h1 className="text-xl font-medium">Sigma</h1>
 
             <div className="flex justify-center"> {/*Status message*/}
-              <Typing>I'm so busy.</Typing>
+              <Typing>I'm so busy{'.'}</Typing>
             </div>
             <div className="flex flex-col gap-1.5 mt-2">
               <div className="flex gap-2 justify-center">
