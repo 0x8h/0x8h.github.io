@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: "Sigmadayo",
     template: "%s | Sigmadayo",
   },
-  description: "New sigma website!!!!!!!! :tada:"
+  description: "New sigma website!!!!!!!! :tada: v1.5"
 };
 
 export default function RootLayout({
