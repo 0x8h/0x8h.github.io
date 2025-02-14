@@ -14,6 +14,7 @@ import particle2 from "@/public/json/ts-particle2.json";
 import particle3 from "@/public/json/ts-particle3.json";
 import particle4 from "@/public/json/ts-particle4.json";
 import particle5 from "@/public/json/ts-particle5.json";
+import particle6 from "@/public/json/ts-particle6.json";
 import { BookIcon, Check, ChevronsUpDown, X} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { loadSlim } from "@tsparticles/slim";
@@ -31,6 +32,7 @@ type ParticleConfig = {
   NYANCAT: object,
   Parallax: object,
   Basic: object,
+  Unknown: object
 };
 
 export default function Home() {
@@ -64,6 +66,7 @@ export default function Home() {
     NYANCAT: particle3,
     Parallax: particle4,
     Basic: particle5,
+    Unknown: particle6
   }), []);
 
   useEffect(() => {
