@@ -1,6 +1,6 @@
 "use client";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import React, { useEffect, useState, useCallback, useMemo, useRef } from "react";
+import React, { useEffect, useState, useCallback, useMemo} from "react";
 import nextConfig from "../next.config";
 import SwipeableTabs from "@/components/ui/swipeable-tabs";
 import Typing from "@/components/ui/type";
@@ -26,11 +26,11 @@ import Book, { BookHeader, BookTitle, BookDescription } from "@/components/ui/bo
 
 const ParticlesMemo = React.memo(Particles);
 type ParticleConfig = {
-  Geometric: any,
-  PolygonMask: any,
-  NYANCAT: any,
-  Parallax: any,
-  Basic: any,
+  Geometric: object,
+  PolygonMask: object,
+  NYANCAT: object,
+  Parallax: object,
+  Basic: object,
 };
 
 export default function Home() {
@@ -78,7 +78,6 @@ export default function Home() {
     setOpen(false);
   }, [value]);
 
-
   return (
     <div>
       {value === "" || value === "Snowfall" ? <Snowfall /> : null}
@@ -101,7 +100,7 @@ export default function Home() {
             <CommandList>
               <CommandEmpty>Nothing here...</CommandEmpty>
               <CommandGroup>
-                {Object.entries(particlesconf).map(([key, config]) => (
+                {Object.entries(particlesconf).map(([key]) => (
                   <CommandItem key={key} onSelect={() => handleSelectparticles(key)}>
                     {key}
                     <Check className={`ml-auto ${value === key ? "opacity-100" : "opacity-0"}`} />
