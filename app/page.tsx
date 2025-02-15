@@ -25,7 +25,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Book, { BookHeader, BookTitle, BookDescription } from "@/components/ui/book";
-import useUserAgent from "@/app/age";
 
 const ParticlesMemo = React.memo(Particles);
 type ParticleConfig = {
@@ -45,7 +44,7 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   const BASE_PATH = nextConfig.basePath || "";
-  const ispc = useUserAgent;
+  const ispc = useragents();
 
   const handleShowBook = () => {
     setFadeOutBook(true);
