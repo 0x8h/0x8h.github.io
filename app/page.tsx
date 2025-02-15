@@ -9,6 +9,7 @@ import Image from "next/image"
 import Snowfall from "react-snowfall";
 import GlowText from "@/components/ui/glow-text";
 import Link from "next/link";
+import useragents from "@/app/age";
 import particle1 from "@/public/json/ts-particle1.json";
 import particle2 from "@/public/json/ts-particle2.json";
 import particle3 from "@/public/json/ts-particle3.json";
@@ -24,6 +25,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import Book, { BookHeader, BookTitle, BookDescription } from "@/components/ui/book";
+import useUserAgent from "@/app/age";
 
 const ParticlesMemo = React.memo(Particles);
 type ParticleConfig = {
@@ -43,6 +45,7 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   const BASE_PATH = nextConfig.basePath || "";
+  const ispc = useUserAgent;
 
   const handleShowBook = () => {
     setFadeOutBook(true);
@@ -80,6 +83,14 @@ export default function Home() {
     setValue(currentval === value ? "" : currentval);
     setOpen(false);
   }, [value]);
+
+  if (!ispc) {
+    return (
+      <div className="flex justify-center items-center h-screen text-center text-lg">
+        <p>Not supported... :{`(`}</p>
+      </div>
+    );
+  }
 
   return (
     <div>
